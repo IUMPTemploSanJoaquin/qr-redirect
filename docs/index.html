@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redireccionando…</title>
+  <!-- Evita cache -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <script>
+    fetch('config.json')
+      .then(res => res.json())
+      .then(data => window.location.replace(data.url))
+      .catch(() => {
+        document.body.innerText = "Error al cargar la URL de redirección.";
+      });
+  </script>
+</head>
+<body>
+  <noscript>
+    <!-- Fallback si JavaScript está deshabilitado -->
+    <meta http-equiv="refresh" content="0; URL=https://www.notion.so/tu-pagina-inicial">
+  </noscript>
+</body>
+</html>
